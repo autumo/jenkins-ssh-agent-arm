@@ -29,7 +29,8 @@ VOLUME "${JENKINS_AGENT_HOME}" "/tmp" "/run" "/var/run"
 WORKDIR "${JENKINS_AGENT_HOME}"
 
 RUN curl https://raw.githubusercontent.com/jenkinsci/docker-ssh-agent/825b24292d4128bac098d1d48b6103c28113c57f/setup-sshd -o /usr/local/bin/setup-sshd
+RUN chmod 755 /usr/local/bin/setup-sshd
 
 EXPOSE 22
 
-ENTRYPOINT ["setup-sshd"]
+ENTRYPOINT ["/usr/local/bin/setup-sshd"]
