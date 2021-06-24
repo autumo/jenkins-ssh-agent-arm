@@ -1,0 +1,6 @@
+version: '3.9'
+services:
+  content:
+    build:
+      context: ./
+    image: autumon/jenkins-ssh-agent-arm:jdk8
